@@ -1,0 +1,25 @@
+### Spring properties
+# Service registers under this name
+spring:
+  application:
+    name: ToDoZuulEurekaDiscoveryClient
+
+# Discovery Server Access
+eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://localhost:8761/eureka/
+# HTTP Server (Tomcat) Port
+server: 
+  port: 8082
+
+zuul:
+   routes:
+     user  :
+       path:  /user/**
+       serviceId :  ToDoUserEurekaClient
+     customer:
+       path: /note/**
+       serviceId: ToDoNoteEurekaClient
+           
+  
